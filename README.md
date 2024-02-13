@@ -1,10 +1,10 @@
-# Project Title
+# Demos - FWK23S
 
 Här lägger vi upp demos som vi gått igenom på lektionstid.
 
 ## Description
 
-Strukturen är per vecka och lektionstillfälle. Exempelvis **vecka7_lektion1**
+Strukturen är per vecka och lektionstillfälle. Exempelvis **vecka7_tisdag**, **vecka7_torsdag** osv
 
 ## Notiser
 
