@@ -8,7 +8,7 @@ Strukturen är per vecka och lektionstillfälle. Exempelvis **vecka7_tisdag**, *
 
 ## Notiser
 
-- node_modules är inte borttagen. ni behöver göra en `npm install` per demo för att paketen skall installeras.
+- `node_modules` är borttagen. ni behöver göra en `npm install` per demo för att paketen skall installeras.
 - för **my-react-app-old** är git katalogen borttagen för att inte vara ett eget git repo i sig (det initieras när man kör `create-react-app` kommandot)
 
 ## Installation
