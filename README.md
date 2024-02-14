@@ -17,3 +17,13 @@ Strukturen är per vecka och lektionstillfälle. Exempelvis **vecka7_tisdag**, *
 
    ```bash
    git clone https://github.com/Degendeg/FWK23S-demos.git
+
+2. Install packages (in respective directory where `package.json` is located):
+
+   ```bash
+   npm install
+
+3. Run locally:
+
+   ```bash
+   npm run dev
