@@ -1,0 +1,31 @@
+1. mkdir npm-test-demo
+	Skapa en katalog som heter npm-test-demo
+
+2. cd npm-test-demo
+	Change directory till din nyskapade katalog
+
+3. npm init
+	Skapa upp en package.json och via prompt (i din terminal) så svarar du på ett antal frågor som lägger basstommen för din package.json. Väljer du att köra npm init -y så svarar den ja automatiskt.
+
+4. npm i react
+	npm i react, förkortning för install (npm install react), installerar det specifika paketet du valt och i detta fall är det React.
+	
+
+5. npm uninstall react
+	npm uninstall react gör vad den säger och avinstallerar ett paket (lokalt) i din katalog och refererar alltid till din package.json. npm uninstall -g react skulle avinstallera det globalt (på din dator) 	om du valt att installera paketet på det sättet.
+
+6. npm i react@15
+	Installerar paketet React med specifik version, i detta fall 15. Eftersom vi enbart sagt major version så tar den senaste versionen från 15 och uppåt. Detta är semantic versioning, så vi har
+	15.1.2 exempelvis, då är 15 major version - .1 är minor version och .2 är patches (bug fixar).
+
+6a. npm audit
+	npm audit är ett verktyg som används för att identifiera och rapportera säkerhetsproblem i de npm-paket som används i ett projekt. Det granskar paketen mot en databas med kända sårbarheter och ger en 	rapport om eventuella problem, inklusive information om sårbarhetens allvarlighetsgrad och föreslagna åtgärder för att lösa dem.
+
+6b. npm audit fix (--force)
+	npm audit fix hjälper dig att fixa mindre sårbarheter av mer obetydande grad medan npm audit fix --force tvingar en åtgärd som kan ha BREAKING CHANGES.
+
+7. npm i -g npm-check-updates
+	Installerar paketet npm-check-updates globalt så att du kan använda det utanför den katalog som din package.json finns. Med detta så ger den dig kommandot "ncu" som du kan köra i din terminal. Med andra 	ord är den tillagd i din PATH.
+
+8. ncu -u --> npm install
+	ncu -u är kommandot för att uppdatera samtliga paket (i behov) i din katalog där din package.json ligger lokalt. Du kommer även få information i terminalen som säger att du har gjort en uppdatering och 	den ber dig att därefter installera om paketet på nytt.
