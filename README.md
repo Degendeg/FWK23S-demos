@@ -10,6 +10,7 @@ Strukturen är per vecka och lektionstillfälle. Exempelvis **vecka7_tisdag**, *
 
 - `node_modules` är borttagen. ni behöver göra en `npm install` per demo för att paketen skall installeras.
 - för **my-react-app-old** är git katalogen borttagen för att inte vara ett eget git repo i sig (det initieras när man kör `create-react-app` kommandot)
+- ni behöver inte köra `npm create vite@latest` för dessa repos då det redan är gjort. testa göra det själva dock för att sätta upp egna applikationer och `git init`
 
 ## Installation
 
