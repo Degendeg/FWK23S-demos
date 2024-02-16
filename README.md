@@ -12,6 +12,9 @@ Strukturen är per vecka och lektionstillfälle. Exempelvis **vecka7_tisdag**, *
 - för **my-react-app-old** är git katalogen borttagen för att inte vara ett eget git repo i sig (det initieras när man kör `create-react-app` kommandot)
 - ni behöver inte köra `npm create vite@latest` för dessa repos då det redan är gjort. testa göra det själva dock för att sätta upp egna applikationer och `git init`
 
+## Sätta upp applikationer själva
+<img width="528" alt="image" src="https://github.com/Degendeg/FWK23S-demos/assets/21487801/a7ab0a99-121a-4fe2-981d-c92ba2acd25f">
+
 ## Installation
 
 1. Clone the repository:
