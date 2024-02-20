@@ -1,0 +1,9 @@
+.button {
+  color: cyan;
+}
+
+.button:hover {
+  color: purple;
+}
+
+/* klassiskt stylesheet, importeras rakt av i respektive komponent */

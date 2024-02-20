@@ -1,12 +1,9 @@
 .button {
-  background-color: rgb(89, 89, 189);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+  color: red;
 }
 
 .button:hover {
-  background-color: rgb(64, 64, 154);
-  box-shadow: rgb(64, 64, 154);
+  color: green;
 }
+
+/* importera stylesheetet som en modul, så får jag ett objekt tillgängligt i min komponent */
