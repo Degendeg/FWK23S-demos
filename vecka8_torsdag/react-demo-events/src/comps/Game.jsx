@@ -1,11 +1,17 @@
+import { useState } from 'react'
+
 const Game = ({ game }) => {
-  const clickHandler = () => {
-    alert('hello')
+  const [data, setData] = useState(['abcde'])
+  const addDataHandler = () => {
+    // random str, 5 letters, ex: 'ftmlk'
+    const randomItem = [...Array(5)].map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
+    setData([...data, randomItem])
   }
   return (
     <>
-      <button onClick={() => alert('hello')}>Click</button>
+      <button onClick={addDataHandler}>addDataHandler</button>
       <pre>{JSON.stringify(game)}</pre>
+      <pre>{JSON.stringify(data)}</pre>
     </>
   )
 }
