@@ -16,13 +16,15 @@
 
 1. I din katalog (app) skriv `git init` i cmd
 
-2. `git add README.md`
+2. `git add .`
 
 3. `git commit -m "init commit"`
 
-4. `git remote add origin https://github.com/<yourGithubUsername>/<yourRepoName>.git`
+4. `git branch -m main`
 
-5. `git push -u origin main` där main är huvudbranchen, annars är vanligt namn `master`
+6. `git remote add origin https://github.com/<yourGithubUsername>/<yourRepoName>.git`
+
+7. `git push -u origin main` där main är huvudbranchen, annars är vanligt namn `master`
 
 -----------------------------------------
 
