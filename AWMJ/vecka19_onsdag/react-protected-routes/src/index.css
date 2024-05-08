@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glow {
+  filter: drop-shadow(0 0 10px #f2ffff);
+  /* Add any other styles for the glow effect */
+}
