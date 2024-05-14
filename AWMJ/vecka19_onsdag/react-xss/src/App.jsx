@@ -6,6 +6,10 @@ function App() {
   const [value, setValue] = useState("<img onError=alert('Hacked!') src='fafsafsa.com'>"); // Define state variable and setter function for the input value
   const resultRef = useRef(null); // Create a ref for the result element
 
+  // read and processed by the server-side environment during the application's build or runtime
+  // .env is located in root folder
+  console.log('env file:', import.meta.env.VITE_SOME_KEY)
+
   return (
     <>
       <h1>Enter something dangerous here</h1>
