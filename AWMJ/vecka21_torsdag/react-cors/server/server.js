@@ -55,7 +55,7 @@ app.post('/api/post', (req, res) => {
 });
 
 app.delete('/api/delete', (req, res) => {
-  res.json('you suck!');
+  res.json('Nothing is deleted but the endpoint was reached!');
 });
 
 app.listen(PORT, () => {
