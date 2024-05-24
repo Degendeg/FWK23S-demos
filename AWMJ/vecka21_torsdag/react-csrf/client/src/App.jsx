@@ -22,7 +22,8 @@ function App() {
       .catch(error => {
         console.error('Error fetching CSRF token:', error);
         toast.error(<div>Error fetching CSRF token!
-          <small dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(error.response.data) }}></small></div>
+          <small dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(error.response ? error.response.data : '<br />...is .env created, is server running? ⚠️') }}>
+          </small></div>
         );
       });
   }, []);
