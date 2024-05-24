@@ -8,26 +8,41 @@ function App() {
 
   // när komponenten initieras, hämta från vårat API och sätt datat om OK annars visa fel (CORS relaterat)
   useEffect(() => {
-    axios.get(import.meta.env.VITE_API_URL)
+    axios.get(import.meta.env.VITE_API_URL + 'data')
       .then(response => {
         setData(response.data);
       })
       .catch(error => {
+        // visa ett felmeddelande till dig som student så du ser att CORS är problemet
         if (error.message === 'Network Error') {
-          setError('A network error occurred. This is often a CORS issue.');
+          setError(`Access to the requested resource has been blocked by CORS policy. Please check the servers 'Access-Control-Allow-Origin' header.`);
         } else {
           setError(error.message);
         }
       });
   }, []);
 
-  // visa relevant meddelande för användaren i syfte att förstå att det är CORS
-  const displayErrorMessage = () => {
-    if (error === 'A network error occurred. This is often a CORS issue.') {
-      return "Access to the requested resource has been blocked by CORS policy. Please check the server's 'Access-Control-Allow-Origin' header.";
-    }
-    return error;
-  };
+  const handlePost = () => {
+    axios.post(import.meta.env.VITE_API_URL + 'post', {
+      test: 'test'
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  const handleDelete = () => {
+    axios.delete(import.meta.env.VITE_API_URL + 'delete')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   return (
     <div className="App">
@@ -35,7 +50,9 @@ function App() {
         <h1><a href="https://www.stackhawk.com/blog/react-cors-guide-what-it-is-and-how-to-enable-it/" target="_blank">CORS</a> Demo</h1>
         {data && <p>{data.message}</p>}
         {!data && !error && <p>Loading...</p>}
-        {error && <p>{displayErrorMessage()}</p>}
+        {error && <p>{error}</p>}
+        <button onClick={handlePost}>Try POST</button>{" "}
+        <button onClick={handleDelete}>Try DELETE</button>
       </header>
     </div>
   );

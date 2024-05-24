@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     // Hämta CSRF-token från servern när komponenten mountas
     // axios.get('http://localhost:3333/api/csrf-tokennnn') // visa catch { .. }
-    axios.get('http://localhost:3333/api/csrf-token')
+    axios.get(import.meta.env.VITE_API_CSRF + 'csrf-token')
       .then(response => {
         setCookie('XSRF-TOKEN', response.data.csrfToken, { path: '/' });
         toast.info(<div>useEffect triggered!<br />CSRF token set! ✅</div>);
@@ -29,7 +29,7 @@ function App() {
 
   const performOperation = () => {
     // Utför en operation med CSRF-token
-    axios.post('http://localhost:3333/api/fake-post', { data }, {
+    axios.post(import.meta.env.VITE_API_CSRF + 'fake-post', { data }, {
       headers: {
         // 'X-CSRF-Token': cookie['XSRF-TOKEN'] + 'fff'
         'X-CSRF-Token': cookie['XSRF-TOKEN']
