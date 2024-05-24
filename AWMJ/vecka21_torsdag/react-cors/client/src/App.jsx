@@ -8,7 +8,7 @@ function App() {
 
   // när komponenten initieras, hämta från vårat API och sätt datat om OK annars visa fel (CORS relaterat)
   useEffect(() => {
-    axios.get(import.meta.env.VITE_API_URL + 'data')
+    axios.get(import.meta.env.VITE_API_CORS_URL + 'data')
       .then(response => {
         setData(response.data);
       })
@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   const handlePost = () => {
-    axios.post(import.meta.env.VITE_API_URL + 'post', {
+    axios.post(import.meta.env.VITE_API_CORS_URL + 'post', {
       test: 'test'
     })
       .then(function (response) {
@@ -35,7 +35,7 @@ function App() {
   }
 
   const handleDelete = () => {
-    axios.delete(import.meta.env.VITE_API_URL + 'delete')
+    axios.delete(import.meta.env.VITE_API_CORS_URL + 'delete')
       .then(function (response) {
         console.log(response);
       })
