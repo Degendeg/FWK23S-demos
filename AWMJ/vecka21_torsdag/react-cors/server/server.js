@@ -10,28 +10,36 @@ const PORT = 3333;
 */
 
 // Lista över tillåtna domäner för DELETE-förfrågningar
-const allowedDeleteDomains = ['http://192.168.50.243:5173'];
+const allowedDeleteDomains = ['http://10.60.84.28:5173'];
 
 const corsOptions = (req, callback) => {
-  let corsOptions = {
-    origin: '*', // Tillåt alla domäner för övriga förfrågningar
-    methods: ['GET', 'POST'], // Tillåt endast GET och POST metoder generellt
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-CSRF-Token'], // Specificera vilka headers som är tillåtna
-    credentials: true, // Tillåt cookies att skickas med förfrågningar
+  let options = {
+    origin: '*', // Tillåt alla domäner som standard
+    methods: ['GET', 'POST'], // Tillåt endast GET och POST metoder som standard
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specificera tillåtna headers
+    credentials: true // Tillåt att credentials skickas med förfrågan
   };
+
+  const origin = req.header('Origin');
 
   // Hantera DELETE-metoden separat
   if (req.method === 'DELETE' || req.method === 'OPTIONS') {
-    const origin = req.header('Origin');
     if (allowedDeleteDomains.includes(origin)) {
-      corsOptions.origin = origin; // Tillåt specifika domäner för DELETE
-      corsOptions.methods.push('DELETE'); // Lägg till DELETE som tillåten metod
+      options.origin = origin; // Tillåt specifika domäner för DELETE
+      options.methods.push('DELETE'); // Lägg till DELETE som tillåten metod
     } else {
-      corsOptions.origin = false; // Blockera DELETE för andra domäner
+      options.origin = false; // Blockera DELETE för andra domäner
     }
   }
 
-  callback(null, corsOptions); // Skicka tillbaka konfigurerade alternativ
+  // För requests med OPTIONS-metoden (preflight), tillåt alltid metoder och headers
+  if (req.method === 'OPTIONS') {
+    options.methods = ['GET', 'POST', 'DELETE'];
+    options.allowedHeaders = ['Content-Type', 'Authorization'];
+    options.credentials = true;
+  }
+
+  callback(null, options); // Skicka tillbaka konfade alternativ
 };
 
 app.use(cors(corsOptions));
@@ -55,7 +63,7 @@ app.post('/api/post', (req, res) => {
 });
 
 app.delete('/api/delete', (req, res) => {
-  res.json('Nothing is deleted but the endpoint was reached!');
+  res.json('DELETE kördes! Inget togs bort men endpointen nåddes trots CORS');
 });
 
 app.listen(PORT, () => {

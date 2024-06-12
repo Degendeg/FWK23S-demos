@@ -5,6 +5,7 @@ import './App.css'
 function App() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [response, setResponse] = useState(null);
 
   // när komponenten initieras, hämta från vårat API och sätt datat om OK annars visa fel (CORS relaterat)
   useEffect(() => {
@@ -28,9 +29,11 @@ function App() {
     })
       .then(function (response) {
         console.log(response);
+        setResponse(response.data);
       })
       .catch(function (error) {
         console.log(error);
+        setResponse(error.message + ' CORS, check console.');
       });
   }
 
@@ -38,9 +41,11 @@ function App() {
     axios.delete(import.meta.env.VITE_API_CORS_URL + 'delete')
       .then(function (response) {
         console.log(response);
+        setResponse(response.data);
       })
       .catch(function (error) {
         console.log(error);
+        setResponse(error.message + ' CORS, check console.');
       });
   }
 
@@ -53,6 +58,8 @@ function App() {
         {error && <p>{error}</p>}
         <button onClick={handlePost}>Try POST</button>{" "}
         <button onClick={handleDelete}>Try DELETE</button>
+        <br /><br /><br />
+        {response && <code style={{ fontSize: '2em', fontWeight: 'bold' }}>{response}</code>}
       </header>
     </div>
   );
